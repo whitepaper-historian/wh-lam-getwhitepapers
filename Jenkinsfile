@@ -9,7 +9,7 @@ pipeline {
 			steps{
 				sh('rm -f package.zip')
 				sh('zip package.zip lambda/index.js')
-				sh('/root/.local/bin/aws lambda update-function-code --function-name GetWhitepapers-DEV --zip-file package.zip')
+				sh('/root/.local/bin/aws lambda update-function-code --function-name GetWhitepapers-DEV --zip-file fileb://package.zip')
 				sh('rm package.zip')
 			}
 		}

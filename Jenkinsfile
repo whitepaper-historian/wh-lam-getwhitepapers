@@ -6,9 +6,11 @@ pipeline {
 
 	stages {
 		stage('Deploy') {
-			sh('zip package.zip lambda/index.js')
-			sh('aws lambda update-function-code --function-name GetWhitepapers-DEV')
-			sh('rm package.zip')
+			steps{
+				sh('zip package.zip lambda/index.js')
+				sh('aws lambda update-function-code --function-name GetWhitepapers-DEV')
+				sh('rm package.zip')
+			}
 		}
 	}
 }

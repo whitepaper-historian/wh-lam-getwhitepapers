@@ -1,5 +1,5 @@
 //This pipeline assumes the following plugins exist on the Jenkins instance:
-//JSLint
+//TBD
 
 pipeline {
 	agent any
@@ -14,7 +14,9 @@ pipeline {
 		}
 
 		stage('Deploy') {
-			//Deploy steps here
+			sh('zip package.zip lambda/index.js')
+			sh('aws lambda update-function-code --function-name GetWhitepapers-DEV')
+			sh('rm package.zip')
 		}
 	}
 }

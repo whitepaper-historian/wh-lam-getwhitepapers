@@ -5,7 +5,7 @@ const ddb = new AWS.DynamoDB.DocumentClient();
 exports.handler = function(event, context, callback){
 
     var params = {
-        TableName: "whitepapers",
+        TableName: "whitepapers-dev",
         Select: "SPECIFIC_ATTRIBUTES",
         ProjectionExpression: "title, updated, pdf_link, kindle_link"
     };
